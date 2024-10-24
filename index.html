@@ -23,7 +23,8 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      .cards-wrapper {
+      .cards-wrapper,
+      .pdf-cards-wrapper {
         display: flex;
         flex-wrap: nowrap;
         gap: 24px;
@@ -31,11 +32,12 @@
         min-width: min-content;
       }
 
-      .card {
+      .card,
+      .pdf-card {
         background: white;
         border-radius: 16px;
         padding: 32px;
-        width: 280px; /* 300px에서 280px로 변경 */
+        width: 280px;
         flex-shrink: 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
@@ -145,56 +147,25 @@
       }
 
       .pdf-section {
-        background: white;
-        border-radius: 16px;
-        padding: 32px;
-        margin: 40px 0 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 60px;
+      }
+
+      .pdf-title-section {
+        margin-bottom: 24px;
+        padding: 0 20px;
       }
 
       .pdf-title {
-        color: #666;
-        font-size: 20px;
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 12px;
         font-weight: 600;
-        margin-bottom: 24px;
       }
 
-      .pdf-price-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 24px;
-      }
-
-      .pdf-price-item {
-        padding: 24px;
-        border-radius: 8px;
-        background: #f8f9fa;
-      }
-
-      .pdf-price-label {
-        font-size: 14px;
+      .pdf-description {
         color: #666;
-        margin-bottom: 8px;
-        font-weight: 500;
-      }
-
-      .pdf-original-price {
-        color: #999;
-        font-size: 14px;
-        text-decoration: line-through;
-        margin-bottom: 4px;
-      }
-
-      .pdf-price {
-        font-size: 24px;
-        font-weight: 700;
-        color: #2196f3;
-      }
-
-      .pdf-price-note {
-        font-size: 13px;
-        color: #666;
-        margin-top: 8px;
+        font-size: 16px;
+        line-height: 1.5;
       }
 
       .container::-webkit-scrollbar {
@@ -220,7 +191,9 @@
     <div class="container">
       <div class="cards-wrapper">
         <div class="card">
-          <h2 class="plan-name">Free Plan</h2>
+          <h2 class="plan-name">
+            Free Plan<span class="coming-soon">출시 예정</span>
+          </h2>
           <div class="free-price">0원</div>
           <div class="price-suffix">무료</div>
           <div class="price-detail">월 100문항 무료 제공</div>
@@ -233,92 +206,95 @@
         <div class="card">
           <h2 class="plan-name">Basic Plan</h2>
           <div class="promo-tag">11월까지 특별가</div>
-          <div class="original-price">40만원</div>
-          <div class="price">29만원</div>
+          <div class="original-price">50만원</div>
+          <div class="price">35만원</div>
           <div class="price-suffix">매달 청구</div>
           <div class="price-detail">
-            기본 200문항 제공<br />추가 문항당 2,000원
+            기본 100문항 제공<br />추가 문항당 2,900원
           </div>
           <ul class="feature-list">
             <li class="feature-item">난이도 조절</li>
             <li class="feature-item">출제 포인트 추천</li>
-            <li class="feature-item">선지 생성</li>
+            <li class="feature-item">선지 생성 (문항 당 50개)</li>
             <li class="feature-item">해설 생성</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2 class="plan-name">Plus Plan</h2>
-          <div class="promo-tag">11월까지 특별가</div>
-          <div class="original-price">100만원</div>
-          <div class="price">69만원</div>
-          <div class="price-suffix">매달 청구</div>
-          <div class="price-detail">
-            기본 500문항 제공<br />추가 문항당 2,000원
-          </div>
-          <ul class="feature-list">
-            <li class="feature-item">Basic의 모든 기능 포함</li>
-            <li class="feature-item">
-              커스텀 생성 방식<span class="coming-soon">예정</span>
-            </li>
-            <li class="feature-item">
-              커스텀 해설 모델<span class="coming-soon">예정</span>
-            </li>
           </ul>
         </div>
 
         <div class="card">
           <h2 class="plan-name">Enterprise Plan</h2>
           <div class="promo-tag">11월까지 특별가</div>
-          <div class="original-price">200만원</div>
-          <div class="price">169만원</div>
+          <div class="original-price">165만원</div>
+          <div class="price">145만원</div>
           <div class="price-suffix">매달 청구</div>
           <div class="price-detail">
-            기본 500문항 제공<br />추가 문항당 2,000원
+            기본 500문항 제공<br />추가 문항당 2,900원
           </div>
           <ul class="feature-list">
-            <li class="feature-item">Plus의 모든 기능 포함</li>
-            <li class="feature-item">다중 계정</li>
-            <li class="feature-item">컨펌 과정 지원</li>
-            <li class="feature-item">직원별 AI 활용 분석</li>
+            <li class="feature-item">Basic의 모든 기능 포함</li>
+            <li class="feature-item">선지 생성 (문항 당 100개)</li>
+            <li class="feature-item">
+              다중 계정 로그인<span class="coming-soon">예정</span>
+            </li>
+            <li class="feature-item">
+              직원별 AI 활용도 분석<span class="coming-soon">예정</span>
+            </li>
           </ul>
         </div>
 
         <div class="card">
-          <h2 class="plan-name">Custom Plan</h2>
+          <h2 class="plan-name">
+            Custom Plan<span class="coming-soon">출시 예정</span>
+          </h2>
           <div class="custom-price">문의</div>
           <div class="price-suffix">맞춤형 요금제</div>
           <div class="price-detail">필요한 기능에 따라 협의</div>
           <ul class="feature-list">
-            <li class="feature-item">
-              커스텀 지문 DB 구축<span class="coming-soon">예정</span>
-            </li>
-            <li class="feature-item">
-              커스텀 유형<span class="coming-soon">예정</span>
-            </li>
-            <li class="feature-item">
-              API 제공<span class="coming-soon">예정</span>
-            </li>
+            <li class="feature-item">커스텀 지문 DB 구축</li>
+            <li class="feature-item">커스텀 해설 모델 제공</li>
+            <li class="feature-item">커스텀 유형 제공</li>
+            <li class="feature-item">API 제공</li>
           </ul>
         </div>
       </div>
 
       <div class="pdf-section">
-        <h2 class="pdf-title">PDF 발췌 지문 요금제</h2>
-        <div class="pdf-price-grid">
-          <div class="pdf-price-item">
+        <div class="pdf-title-section">
+          <h2 class="pdf-title">PDF 발췌 지문 요금제</h2>
+          <p class="pdf-description">
+            PDF에서 발췌된 지문을 사용해 문항을 등록하실 수 있습니다.
+          </p>
+        </div>
+
+        <div class="pdf-cards-wrapper">
+          <div class="pdf-card">
+            <h3 class="plan-name">선별 지문</h3>
             <div class="promo-tag">11월까지 특별가</div>
-            <div class="plan-name">기본 발췌</div>
-            <div class="pdf-original-price">9만원/10지문</div>
-            <div class="pdf-price">6만원/10지문</div>
+            <div class="original-price">9만원</div>
+            <div class="price">6만원</div>
+            <div class="price-suffix">10지문 단위 구매</div>
+            <div class="price-detail">해외 원서에서 발췌한 지문</div>
+            <ul class="feature-list">
+              <li class="feature-item">엄선된 PDF 지문 제공</li>
+              <li class="feature-item">
+                난이도 예측<span class="coming-soon">예정</span>
+              </li>
+              <li class="feature-item">
+                주제별 카테고리<span class="coming-soon">예정</span>
+              </li>
+            </ul>
           </div>
 
-          <div class="pdf-price-item">
+          <div class="pdf-card">
+            <h3 class="plan-name">PDF 지정</h3>
             <div class="promo-tag">11월까지 특별가</div>
-            <div class="plan-name">PDF 지정</div>
-            <div class="pdf-original-price">12,000원/지문</div>
-            <div class="pdf-price">9,000원/지문</div>
-            <div class="pdf-price-note">원하시는 PDF에서 직접 지정 가능</div>
+            <div class="original-price">12,000원</div>
+            <div class="price">9,000원</div>
+            <div class="price-suffix">지문 당</div>
+            <div class="price-detail">업로드한 PDF에서 발췌</div>
+            <ul class="feature-list">
+              <li class="feature-item">원하는 PDF 사용</li>
+              <li class="feature-item">발췌할 지문 개수 지정 가능</li>
+            </ul>
           </div>
         </div>
       </div>
