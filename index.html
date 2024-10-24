@@ -1,307 +1,327 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.css" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      padding: 40px;
-      font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: #f5f5f5;
-    }
+  <head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 40px;
+        font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background-color: #f5f5f5;
+      }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 40px;
-      overflow-x: auto;
-      scroll-padding: 20px;
-      -webkit-overflow-scrolling: touch;
-    }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px;
+        overflow-x: auto;
+        scroll-padding: 20px;
+        -webkit-overflow-scrolling: touch;
+      }
 
-    .cards-wrapper {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 24px;
-      padding: 20px 0;
-      min-width: min-content;
-    }
+      .cards-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 24px;
+        padding: 20px 0;
+        min-width: min-content;
+      }
 
-    .card {
+      .card {
         background: white;
         border-radius: 16px;
         padding: 32px;
-        width: 280px;  /* 300px에서 280px로 변경 */
+        width: 280px; /* 300px에서 280px로 변경 */
         flex-shrink: 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+      }
 
-    .plan-name {
-      color: #666;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
+      .plan-name {
+        color: #666;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
 
-    .original-price {
-      color: #999;
-      font-size: 16px;
-      text-decoration: line-through;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
+      .original-price {
+        color: #999;
+        font-size: 16px;
+        text-decoration: line-through;
+        margin-bottom: 8px;
+        font-weight: 400;
+      }
 
-    .price {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
+      .price {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
 
-    .free-price {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: #4CAF50;
-    }
+      .free-price {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #4caf50;
+      }
 
-    .custom-price {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: #2196F3;
-    }
+      .custom-price {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #2196f3;
+      }
 
-    .price-suffix {
-      color: #666;
-      font-size: 16px;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
+      .price-suffix {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 8px;
+        font-weight: 400;
+      }
 
-    .price-detail {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 24px;
-      font-weight: 400;
-      line-height: 1.5;
-    }
+      .price-detail {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 24px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
 
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 16px;
-      color: #444;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 1.5;
-    }
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        color: #444;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.5;
+      }
 
-    .feature-item:before {
-      content: "✓";
-      display: inline-block;
-      min-width: 20px;
-      height: 20px;
-      background: #f0f0f0;
-      border-radius: 50%;
-      margin-right: 12px;
-      text-align: center;
-      line-height: 20px;
-      font-size: 12px;
-      color: #666;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+      .feature-item:before {
+        content: "✓";
+        display: inline-block;
+        min-width: 20px;
+        height: 20px;
+        background: #f0f0f0;
+        border-radius: 50%;
+        margin-right: 12px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #666;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
 
-    .promo-tag {
-      display: inline-block;
-      background: #ffe4e4;
-      color: #ff4444;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
+      .promo-tag {
+        display: inline-block;
+        background: #ffe4e4;
+        color: #ff4444;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
 
-    .coming-soon {
-      display: inline-block;
-      background: #e8f4fd;
-      color: #2196F3;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 12px;
-      margin-left: 6px;
-      font-weight: 500;
-    }
+      .coming-soon {
+        display: inline-block;
+        background: #e8f4fd;
+        color: #2196f3;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-left: 6px;
+        font-weight: 500;
+      }
 
-    .pdf-section {
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      margin: 40px 0 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+      .pdf-section {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        margin: 40px 0 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-    .pdf-title {
-      color: #666;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
+      .pdf-title {
+        color: #666;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
 
-    .pdf-price-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
+      .pdf-price-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+      }
 
-    .pdf-price-item {
-      padding: 24px;
-      border-radius: 8px;
-      background: #f8f9fa;
-    }
+      .pdf-price-item {
+        padding: 24px;
+        border-radius: 8px;
+        background: #f8f9fa;
+      }
 
-    .pdf-price-label {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
+      .pdf-price-label {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
 
-    .pdf-original-price {
-      color: #999;
-      font-size: 14px;
-      text-decoration: line-through;
-      margin-bottom: 4px;
-    }
+      .pdf-original-price {
+        color: #999;
+        font-size: 14px;
+        text-decoration: line-through;
+        margin-bottom: 4px;
+      }
 
-    .pdf-price {
-      font-size: 24px;
-      font-weight: 700;
-      color: #2196F3;
-    }
+      .pdf-price {
+        font-size: 24px;
+        font-weight: 700;
+        color: #2196f3;
+      }
 
-    .pdf-price-note {
-      font-size: 13px;
-      color: #666;
-      margin-top: 8px;
-    }
+      .pdf-price-note {
+        font-size: 13px;
+        color: #666;
+        margin-top: 8px;
+      }
 
-    .container::-webkit-scrollbar {
-      height: 8px;
-    }
+      .container::-webkit-scrollbar {
+        height: 8px;
+      }
 
-    .container::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 4px;
-    }
+      .container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
 
-    .container::-webkit-scrollbar-thumb {
-      background: #ddd;
-      border-radius: 4px;
-    }
+      .container::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 4px;
+      }
 
-    .container::-webkit-scrollbar-thumb:hover {
-      background: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="cards-wrapper">
-      <div class="card">
-        <h2 class="plan-name">Free Plan</h2>
-        <div class="free-price">0원</div>
-        <div class="price-suffix">무료</div>
-        <div class="price-detail">월 100문항 무료 제공</div>
-        <ul class="feature-list">
-          <li class="feature-item">월 신규등록 100문항</li>
-          <li class="feature-item">유형 추천</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="plan-name">Basic Plan</h2>
-        <div class="promo-tag">11월까지 특별가</div>
-        <div class="original-price">40만원</div>
-        <div class="price">29만원</div>
-        <div class="price-suffix">매달 청구</div>
-        <div class="price-detail">기본 200문항 제공<br>추가 문항당 2,000원</div>
-        <ul class="feature-list">
-          <li class="feature-item">난이도 조절</li>
-          <li class="feature-item">출제 포인트 추천</li>
-          <li class="feature-item">선지 생성</li>
-          <li class="feature-item">해설 생성</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="plan-name">Plus Plan</h2>
-        <div class="promo-tag">11월까지 특별가</div>
-        <div class="original-price">100만원</div>
-        <div class="price">69만원</div>
-        <div class="price-suffix">매달 청구</div>
-        <div class="price-detail">기본 500문항 제공<br>추가 문항당 2,000원</div>
-        <ul class="feature-list">
-          <li class="feature-item">Basic의 모든 기능 포함</li>
-          <li class="feature-item">커스텀 생성 방식<span class="coming-soon">예정</span></li>
-          <li class="feature-item">커스텀 해설 모델<span class="coming-soon">예정</span></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="plan-name">Enterprise Plan</h2>
-        <div class="promo-tag">11월까지 특별가</div>
-        <div class="original-price">200만원</div>
-        <div class="price">169만원</div>
-        <div class="price-suffix">매달 청구</div>
-        <div class="price-detail">기본 500문항 제공<br>추가 문항당 2,000원</div>
-        <ul class="feature-list">
-          <li class="feature-item">Plus의 모든 기능 포함</li>
-          <li class="feature-item">다중 계정</li>
-          <li class="feature-item">컨펌 과정 지원</li>
-          <li class="feature-item">직원별 AI 활용 분석</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="plan-name">Custom Plan</h2>
-        <div class="custom-price">문의</div>
-        <div class="price-suffix">맞춤형 요금제</div>
-        <div class="price-detail">필요한 기능에 따라 협의</div>
-        <ul class="feature-list">
-          <li class="feature-item">커스텀 지문 DB 구축<span class="coming-soon">예정</span></li>
-          <li class="feature-item">커스텀 유형<span class="coming-soon">예정</span></li>
-          <li class="feature-item">API 제공<span class="coming-soon">예정</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="pdf-section">
-      <h2 class="pdf-title">PDF 발췌 지문 요금제</h2>
-      <div class="pdf-price-grid">
-        <div class="pdf-price-item">
-          <div class="promo-tag">11월까지 특별가</div>
-          <div class="plan-name">기본 발췌</div>
-          <div class="pdf-original-price">9만원/10개</div>
-          <div class="pdf-price">6만원/10개</div>
+      .container::-webkit-scrollbar-thumb:hover {
+        background: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cards-wrapper">
+        <div class="card">
+          <h2 class="plan-name">Free Plan</h2>
+          <div class="free-price">0원</div>
+          <div class="price-suffix">무료</div>
+          <div class="price-detail">월 100문항 무료 제공</div>
+          <ul class="feature-list">
+            <li class="feature-item">월 신규등록 100문항</li>
+            <li class="feature-item">유형 추천</li>
+          </ul>
         </div>
-        
-        <div class="pdf-price-item">
+
+        <div class="card">
+          <h2 class="plan-name">Basic Plan</h2>
           <div class="promo-tag">11월까지 특별가</div>
-          <div class="plan-name">PDF 지정</div>
-          <div class="pdf-original-price">12,000원/개</div>
-          <div class="pdf-price">9,000원/개</div>
-          <div class="pdf-price-note">원하시는 PDF에서 직접 지정 가능</div>
+          <div class="original-price">40만원</div>
+          <div class="price">29만원</div>
+          <div class="price-suffix">매달 청구</div>
+          <div class="price-detail">
+            기본 200문항 제공<br />추가 문항당 2,000원
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">난이도 조절</li>
+            <li class="feature-item">출제 포인트 추천</li>
+            <li class="feature-item">선지 생성</li>
+            <li class="feature-item">해설 생성</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="plan-name">Plus Plan</h2>
+          <div class="promo-tag">11월까지 특별가</div>
+          <div class="original-price">100만원</div>
+          <div class="price">69만원</div>
+          <div class="price-suffix">매달 청구</div>
+          <div class="price-detail">
+            기본 500문항 제공<br />추가 문항당 2,000원
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">Basic의 모든 기능 포함</li>
+            <li class="feature-item">
+              커스텀 생성 방식<span class="coming-soon">예정</span>
+            </li>
+            <li class="feature-item">
+              커스텀 해설 모델<span class="coming-soon">예정</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="plan-name">Enterprise Plan</h2>
+          <div class="promo-tag">11월까지 특별가</div>
+          <div class="original-price">200만원</div>
+          <div class="price">169만원</div>
+          <div class="price-suffix">매달 청구</div>
+          <div class="price-detail">
+            기본 500문항 제공<br />추가 문항당 2,000원
+          </div>
+          <ul class="feature-list">
+            <li class="feature-item">Plus의 모든 기능 포함</li>
+            <li class="feature-item">다중 계정</li>
+            <li class="feature-item">컨펌 과정 지원</li>
+            <li class="feature-item">직원별 AI 활용 분석</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 class="plan-name">Custom Plan</h2>
+          <div class="custom-price">문의</div>
+          <div class="price-suffix">맞춤형 요금제</div>
+          <div class="price-detail">필요한 기능에 따라 협의</div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              커스텀 지문 DB 구축<span class="coming-soon">예정</span>
+            </li>
+            <li class="feature-item">
+              커스텀 유형<span class="coming-soon">예정</span>
+            </li>
+            <li class="feature-item">
+              API 제공<span class="coming-soon">예정</span>
+            </li>
+          </ul>
         </div>
       </div>
+
+      <div class="pdf-section">
+        <h2 class="pdf-title">PDF 발췌 지문 요금제</h2>
+        <div class="pdf-price-grid">
+          <div class="pdf-price-item">
+            <div class="promo-tag">11월까지 특별가</div>
+            <div class="plan-name">기본 발췌</div>
+            <div class="pdf-original-price">9만원/10지문</div>
+            <div class="pdf-price">6만원/10지문</div>
+          </div>
+
+          <div class="pdf-price-item">
+            <div class="promo-tag">11월까지 특별가</div>
+            <div class="plan-name">PDF 지정</div>
+            <div class="pdf-original-price">12,000원/지문</div>
+            <div class="pdf-price">9,000원/지문</div>
+            <div class="pdf-price-note">원하시는 PDF에서 직접 지정 가능</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
